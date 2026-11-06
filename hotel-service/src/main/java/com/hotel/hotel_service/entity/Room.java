@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 
 @Entity
 @Table(name = "rooms")
@@ -15,10 +17,13 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Room number cannot be empty")
     private String roomNumber;
 
+    @NotBlank (message = "Room type cannot be empty")
     private String roomType;
 
+    @Positive(message = "Price per night must be greater than zero")
     private double pricePerNight;
 
     private boolean available;
