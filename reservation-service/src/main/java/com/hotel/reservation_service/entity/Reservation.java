@@ -23,20 +23,24 @@ public class Reservation {
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
 
+    private double totalPrice;
+
     private String status;
 
     public Reservation() {
     }
 
     public Reservation(String guestName, String guestEmail,
-                       Long roomId, LocalDate checkInDate,
-                       LocalDate checkOutDate, String status) {
+        Long roomId, LocalDate checkInDate,
+        LocalDate checkOutDate, String status,
+        double totalPrice) {
         this.guestName = guestName;
         this.guestEmail = guestEmail;
         this.roomId = roomId;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
         this.status = status;
+        this.totalPrice = totalPrice;
     }
 
     public Long getId() { return id; }
@@ -52,4 +56,6 @@ public class Reservation {
     public void setCheckOutDate(LocalDate checkOutDate) { this.checkOutDate = checkOutDate; }
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
+    public double getTotalPrice() {return totalPrice;}
+    public void setTotalPrice(double totalPrice) {this.totalPrice = totalPrice;}
 } 

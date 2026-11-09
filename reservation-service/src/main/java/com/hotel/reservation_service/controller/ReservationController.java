@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hotel.reservation_service.entity.Reservation;
@@ -28,10 +29,16 @@ public class ReservationController {
         return reservationService.getAllReservations();
     }
 
+   
     @PostMapping
-    public Reservation createReservation(@RequestBody Reservation reservation) {
-        return reservationService.createReservation(reservation);
+    public Reservation createReservation(
+            @RequestBody Reservation reservation,
+            @RequestParam String paymentType) {
+
+        return reservationService.createReservation(
+                reservation, paymentType);
     }
+
 
     @GetMapping("/{id}")
     public Reservation getReservationById(@PathVariable Long id) {
